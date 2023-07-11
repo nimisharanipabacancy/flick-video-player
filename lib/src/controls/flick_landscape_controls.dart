@@ -33,6 +33,7 @@ class FlickLandscapeControls extends StatelessWidget {
       unmuteChild: unmuteChild,
       soundDecoration: soundDecoration,
       soundPadding: soundPadding,
+      isPortrait: false,
     );
   }
 }
