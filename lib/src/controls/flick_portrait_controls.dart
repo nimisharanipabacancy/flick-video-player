@@ -11,8 +11,11 @@ class FlickPortraitControls extends StatelessWidget {
       this.muteChild,
       this.unmuteChild,
       this.soundDecoration,
-      this.soundPadding})
+      this.soundPadding,
+      this.isPortrait = true})
       : super(key: key);
+
+  final bool isPortrait;
 
   /// Icon size.
   ///
@@ -44,8 +47,8 @@ class FlickPortraitControls extends StatelessWidget {
                   child: FlickAutoHideChild(
                     showIfVideoNotInitialized: false,
                     child: FlickPlayToggle(
-                      size: 30,
-                      color: Colors.black,
+                      size: 36,
+                      color: Colors.white,
                       padding: EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         // color: Colors.white70,
@@ -65,9 +68,10 @@ class FlickPortraitControls extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  // FlickVideoProgressBar(
-                  //   flickProgressBarSettings: progressBarSettings,
-                  // ),
+                  if (!isPortrait)
+                    FlickVideoProgressBar(
+                      flickProgressBarSettings: progressBarSettings,
+                    ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
