@@ -7,7 +7,11 @@ class FlickPortraitControls extends StatelessWidget {
       {Key? key,
       this.iconSize = 20,
       this.fontSize = 12,
-      this.progressBarSettings})
+      this.progressBarSettings,
+      this.muteChild,
+      this.unmuteChild,
+      this.soundDecoration,
+      this.soundPadding})
       : super(key: key);
 
   /// Icon size.
@@ -22,6 +26,11 @@ class FlickPortraitControls extends StatelessWidget {
 
   /// [FlickProgressBarSettings] settings.
   final FlickProgressBarSettings? progressBarSettings;
+
+  final Widget? muteChild;
+  final Widget? unmuteChild;
+  final EdgeInsetsGeometry? soundPadding;
+  final Decoration? soundDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +48,7 @@ class FlickPortraitControls extends StatelessWidget {
                       color: Colors.black,
                       padding: EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.white70,
+                        // color: Colors.white70,
                         borderRadius: BorderRadius.circular(40),
                       ),
                     ),
@@ -56,25 +65,29 @@ class FlickPortraitControls extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  FlickVideoProgressBar(
-                    flickProgressBarSettings: progressBarSettings,
-                  ),
+                  // FlickVideoProgressBar(
+                  //   flickProgressBarSettings: progressBarSettings,
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      FlickPlayToggle(
-                        size: iconSize,
-                      ),
-                      SizedBox(
-                        width: iconSize / 2,
-                      ),
+                      // FlickPlayToggle(
+                      //   size: iconSize,
+                      // ),
+                      // SizedBox(
+                      //   width: iconSize / 2,
+                      // ),
                       FlickSoundToggle(
                         size: iconSize,
+                        muteChild: muteChild,
+                        unmuteChild: unmuteChild,
+                        decoration: soundDecoration,
+                        padding: soundPadding,
                       ),
                       SizedBox(
                         width: iconSize / 2,
                       ),
-                      Row(
+                      /*Row(
                         children: <Widget>[
                           FlickCurrentPosition(
                             fontSize: fontSize,
@@ -90,18 +103,20 @@ class FlickPortraitControls extends StatelessWidget {
                             fontSize: fontSize,
                           ),
                         ],
-                      ),
+                      ),*/
                       Expanded(
                         child: Container(),
                       ),
                       FlickSubtitleToggle(
                         size: iconSize,
                       ),
-                      SizedBox(
-                        width: iconSize / 2,
-                      ),
+                      // SizedBox(
+                      //   width: iconSize / 2,
+                      // ),
                       FlickFullScreenToggle(
                         size: iconSize,
+                        decoration: soundDecoration,
+                        padding: soundPadding,
                       ),
                     ],
                   ),
